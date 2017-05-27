@@ -1,0 +1,39 @@
+﻿<UserControl
+    x:Class="Quicky.Views.Tile"
+    x:Name="Control"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:Quicky.ViewModels"
+    mc:Ignorable="d"
+    Height="{Binding Height}"
+    Width="{Binding Width}">
+    
+    <UserControl.DataContext>
+        <viewModels:TileViewModel />
+    </UserControl.DataContext>
+
+    <Button HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Button.Template>
+            <ControlTemplate>
+                <ContentPresenter>
+                    <Grid>
+                        <Grid Name="Icon">
+                            <TextBlock Height="{Binding IconHeight}" Width="{Binding IconWidth}" />
+                            <Image Height="{Binding IconHeight}" Width="{Binding IconWidth}" />
+                        </Grid>
+
+                        <StackPanel Name="Desc" Orientation="Vertical"
+                                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Title, ElementName=Control}"
+                                       FontSize="{Binding TitleFontSize}" />
+                            <TextBlock Text="{Binding Description, ElementName=Control}"
+                                       FontSize="{Binding DescriptionFontSize}" />
+                        </StackPanel>
+                    </Grid>
+                </ContentPresenter>
+            </ControlTemplate>
+        </Button.Template>
+    </Button>
+</UserControl>

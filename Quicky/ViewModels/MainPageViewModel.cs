@@ -1,16 +1,19 @@
 ﻿using System;
-using Windows.UI.Xaml.Controls;
-using Quicky.Views;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Quicky.Annotations;
 
 namespace Quicky.ViewModels
 {
-    public class MainPageViewModel
+    public class MainPageViewModel : IPageViewModel
     {
+        public double Size { get; set; }
+
         public double Height { get; set; }
 
         public double Width { get; set; }
 
-        public Page CurrentPage { get; set; }
+        public IPageViewModel CurrentPage { get; set; }
 
         public MainPageViewModel()
         {
@@ -21,7 +24,7 @@ namespace Quicky.ViewModels
             Width = Math.Ceiling(screenInfo.ScreenWidthInRawPixels / 1.25);
         }
 
-        public Page GetPage(PageState page)
+        public IPageViewModel GetPage(PageState page)
         {
             switch (page)
             {
@@ -29,13 +32,21 @@ namespace Quicky.ViewModels
                     throw new NotImplementedException();
 
                 case PageState.HomePage:
-                    return new HomePage();
+                    return new HomePageViewModel();
             }
         }
 
         public enum PageState
         {
             HomePage
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

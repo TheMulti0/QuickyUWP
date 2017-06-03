@@ -1,45 +1,33 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Quicky.Annotations;
+using Windows.Graphics.Display;
+using Windows.UI.Xaml;
+using Quicky.Properties;
 
 namespace Quicky.ViewModels
 {
-    public class MainPageViewModel : IPageViewModel
+    public class MainPageViewModel : IViewModel
     {
+        public MainPageViewModel()
+        {
+            var screenInfo = DisplayInformation.GetForCurrentView();
+            FetchSizes(screenInfo);
+        }
+
+        public void FetchSizes(object size)
+        {
+            var screenInfo = (DisplayInformation) size;
+            Height = screenInfo.ScreenHeightInRawPixels / 1.25;
+            Width = screenInfo.ScreenWidthInRawPixels / 1.25;
+        }
+
         public double Size { get; set; }
 
         public double Height { get; set; }
 
         public double Width { get; set; }
 
-        public IPageViewModel CurrentPage { get; set; }
-
-        public MainPageViewModel()
-        {
-            CurrentPage = GetPage(PageState.HomePage);
-            
-            var screenInfo = Windows.Graphics.Display.DisplayInformation.GetForCurrentView();
-            Height = Math.Ceiling(screenInfo.ScreenHeightInRawPixels / 1.25);
-            Width = Math.Ceiling(screenInfo.ScreenWidthInRawPixels / 1.25);
-        }
-
-        public IPageViewModel GetPage(PageState page)
-        {
-            switch (page)
-            {
-                default:
-                    throw new NotImplementedException();
-
-                case PageState.HomePage:
-                    return new HomePageViewModel();
-            }
-        }
-
-        public enum PageState
-        {
-            HomePage
-        }
+        public UIElement Content { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

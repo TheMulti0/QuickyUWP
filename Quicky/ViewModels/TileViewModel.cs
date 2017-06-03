@@ -1,35 +1,104 @@
 ﻿using System;
-using Windows.UI.Xaml;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Quicky.Properties;
+using Quicky.Views;
 
 namespace Quicky.ViewModels
 {
-    internal class TileViewModel
+    internal class TileViewModel : IViewModel
     {
+        private double _descriptionFontSize;
+        private double _height;
+        private double _iconSize;
+        private double _titleFontSize;
+        private double _width;
+
         public TileViewModel()
         {
-            Func<double, double> mathFunc = Math.Ceiling;
-
-            var sizeInfo = Window.Current.Bounds;
-            Height = (int) mathFunc(sizeInfo.Height / 3.6);
-            Width = Height;
-
-            IconHeight = (int) mathFunc(Height / 6.0);
-            IconWidth = IconHeight;
-
-            TitleFontSize = (int) mathFunc(IconHeight / 2.625);
-            DescriptionFontSize = (int) mathFunc(TitleFontSize / 1.5);
+            var height = MainPage.ViewModel.Height;
+            FetchSizes(height);
         }
 
-        public int Height { get; set; }
+        public double Height
+        {
+            get => _height;
+            set
+            {
+                _height = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public int Width { get; set; }
+        public double Width
+        {
+            get => _width;
+            set
+            {
+                _width = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public int IconHeight { get; set; }
+        public double IconSize
+        {
+            get => _iconSize;
+            set
+            {
+                _iconSize = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public int IconWidth { get; set; }
+        public double TitleFontSize
+        {
+            get => _titleFontSize;
+            set
+            {
+                _titleFontSize = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public int TitleFontSize { get; set; }
+        public double DescriptionFontSize
+        {
+            get => _descriptionFontSize;
+            set
+            {
+                _descriptionFontSize = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public int DescriptionFontSize { get; set; }
+        public void FetchSizes(object size)
+        {
+            var newHeight = (double) size / 3.6;
+            if (Math.Abs(Height - newHeight) < 0.0)
+            {
+                return;
+            }
+            Height = newHeight;
+            Width = Height;
+
+            IconSize = Height / 6.0;
+
+            TitleFontSize = IconSize / 2.3;
+            DescriptionFontSize = TitleFontSize / 1.25;
+
+            const double tolerance = 1.8;
+            Height *= tolerance;
+            Width *= tolerance;
+            IconSize *= tolerance;
+            TitleFontSize *= tolerance;
+            DescriptionFontSize *= tolerance;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

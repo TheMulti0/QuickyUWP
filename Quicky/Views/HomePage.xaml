@@ -5,20 +5,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:views="using:Quicky.Views"
-    xmlns:viewModels="using:Quicky.ViewModels"
     mc:Ignorable="d">
-    
-    <Page.DataContext>
-        <viewModels:HomePageViewModel />
-    </Page.DataContext>
 
-    <Page.Content>
-        <Grid>
-            <views:Tile Icon="&#xE8A3;"
-                        Title="Hi"
-                        Description="Say hello to everybody" />
-        </Grid>
-    </Page.Content>
+    <Grid>
+        <views:Tile Icon="&#xE8A3;"
+                    Title="Hi"
+                    Description="Say hello to everybody" />
+    </Grid>
 </Page>
 
 

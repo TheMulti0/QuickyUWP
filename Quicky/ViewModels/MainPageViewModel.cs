@@ -2,7 +2,8 @@
 using System.Runtime.CompilerServices;
 using Windows.Graphics.Display;
 using Windows.UI.Xaml;
-using Quicky.Properties;
+using Quicky.Annotations;
+using Quicky.Views;
 
 namespace Quicky.ViewModels
 {
@@ -27,7 +28,7 @@ namespace Quicky.ViewModels
 
         public double Width { get; set; }
 
-        public UIElement Content { get; set; }
+        public INavigationPage Content { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -2,6 +2,7 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Practices.Unity;
 using Quicky.ViewModels;
 
 namespace Quicky.Views
@@ -17,9 +18,16 @@ namespace Quicky.Views
 
             ViewModel.Content = new HomePage();
 
-            NavigationService = new NavigationService();
-            Window.Current.VisibilityChanged +=
-                (sender, args) => NavigationService.Navigate(this, (INavigationPage) ViewModel.Content);
+            
+            Window.Current.VisibilityChanged += (sender, args) =>
+            {
+                IUnityContainer container = new UnityContainer();
+
+                container.RegisterInstance<INavigationContainerPage>(this);
+                container.RegisterInstance<INavigationPage>(ViewModel.Content);
+
+                container.Resolve<NavigationService>();
+            };
         }
 
         public static MainPageViewModel ViewModel { get; set; }

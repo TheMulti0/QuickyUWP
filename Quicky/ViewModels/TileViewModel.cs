@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Quicky.Properties;
+using Quicky.Annotations;
 using Quicky.Views;
 
 namespace Quicky.ViewModels

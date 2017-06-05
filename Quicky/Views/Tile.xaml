@@ -98,7 +98,7 @@
     </UserControl.Resources>
 
     <Grid>
-        <Button>
+        <Button Click="Tile_OnClick">
             <StackPanel Orientation="Vertical">
                 <Grid>
                     <TextBlock Text="{x:Bind Icon}"

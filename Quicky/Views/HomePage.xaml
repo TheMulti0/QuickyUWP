@@ -7,11 +7,16 @@
     xmlns:views="using:Quicky.Views"
     mc:Ignorable="d">
 
-    <Grid>
-        <views:Tile Icon="&#xE8A3;"
-                    Title="Hi"
-                    Description="Say hello to everybody" />
-    </Grid>
+    <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+        <views:Tile Icon="&#xE713;"
+                    Title="Settings"
+                    Description="Control the app.">
+            <views:Tile.Page>
+                <views:SettingsPage />
+            </views:Tile.Page>
+        </views:Tile>
+    </StackPanel>
 </Page>
 
 

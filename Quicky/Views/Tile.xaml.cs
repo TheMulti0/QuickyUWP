@@ -6,6 +6,9 @@ namespace Quicky.Views
 {
     public partial class Tile
     {
+        public static readonly DependencyProperty PageProperty
+            = DependencyProperty.Register("Page", typeof(INavigationPage), typeof(UIElement), null);
+
         public static readonly DependencyProperty IconProperty
             = DependencyProperty.Register("Icon", typeof(string), typeof(UIElement), null);
 
@@ -20,6 +23,12 @@ namespace Quicky.Views
             InitializeComponent();
 
             Window.Current.SizeChanged += Window_OnSizeChanged;
+        }
+
+        public INavigationPage Page
+        {
+            get => (INavigationPage) GetValue(PageProperty);
+            set => SetValue(PageProperty, value);
         }
 
         public string Icon
@@ -47,6 +56,11 @@ namespace Quicky.Views
             mainPageVm.Height = e.Size.Height;
             var vm = (TileViewModel) DataContext;
             vm.FetchSizes(mainPageVm.Height);
+        }
+
+        private void Tile_OnClick(object sender, RoutedEventArgs e)
+        {
+            MainPage.CurrentInstance.NavigateToPage(Page);
         }
     }
 }

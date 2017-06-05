@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="Quicky.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cf4="using:Coding4Fun.Toolkit.Controls"
+    mc:Ignorable="d">
+    
+    <Page.Resources>
+        <Flyout x:Key="ColorPickerFlyout">
+            <RelativePanel>
+                <cf4:ColorPicker />
+            </RelativePanel>
+        </Flyout>
+    </Page.Resources>
+
+    <Grid>
+        <Button />
+    </Grid>
+</Page>

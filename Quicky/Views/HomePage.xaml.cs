@@ -1,4 +1,5 @@
 ﻿using System;
+using Windows.UI.Xaml;
 
 namespace Quicky.Views
 {
@@ -11,6 +12,11 @@ namespace Quicky.Views
             InitializeComponent();
 
             PageType = typeof(HomePage);
+        }
+
+        private void SettingsTile_OnClick(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

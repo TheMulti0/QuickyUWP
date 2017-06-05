@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Windows.Graphics.Display;
-using Windows.UI.Xaml;
 using Quicky.Annotations;
 using Quicky.Views;
 

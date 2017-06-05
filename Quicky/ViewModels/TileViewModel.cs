@@ -85,7 +85,11 @@ namespace Quicky.ViewModels
             TitleFontSize = IconSize / 2.3;
             DescriptionFontSize = TitleFontSize / 1.25;
 
-            const double tolerance = 1.8;
+            MultiplyValue(1.8);
+        }
+
+        private void MultiplyValue(double tolerance)
+        {
             Height *= tolerance;
             Width *= tolerance;
             IconSize *= tolerance;

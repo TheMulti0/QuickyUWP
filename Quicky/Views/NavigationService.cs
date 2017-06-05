@@ -7,6 +7,11 @@ namespace Quicky.Views
         public NavigationService(
             INavigationContainerPage container, INavigationPage navigation)
         {
+            Navigate(container, navigation);
+        }
+
+        public void Navigate(INavigationContainerPage container, INavigationPage navigation)
+        {
             var containerFrame = ((Page)container).Frame;
             var navigationType = navigation.PageType;
 

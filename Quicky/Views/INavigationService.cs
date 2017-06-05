@@ -2,5 +2,7 @@
 {
     public interface INavigationService
     {
+        void Navigate(
+            INavigationContainerPage container, INavigationPage navigation);
     }
 }

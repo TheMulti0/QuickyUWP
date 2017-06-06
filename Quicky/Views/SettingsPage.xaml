@@ -6,16 +6,26 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:cf4="using:Coding4Fun.Toolkit.Controls"
     mc:Ignorable="d">
-    
+
     <Page.Resources>
-        <Flyout x:Key="ColorPickerFlyout">
-            <RelativePanel>
-                <cf4:ColorPicker />
-            </RelativePanel>
+        <Flyout x:Name="ColorPickerFlyout">
+            <StackPanel Orientation="Vertical">
+                <cf4:ColorPicker x:Name="ColorPicker"
+                                 Height="{Binding ColorPickerHeight}"
+                                 Width="{Binding ColorPickerWidth}" />
+
+                <StackPanel Margin="{Binding ConfirmationPanelMargin}"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <Button Content="OK" Click="FlyoutOkButton_OnClick" />
+
+                    <Button Content="Cancel" Click="FlyoutCancelButton_OnClick" />
+                </StackPanel>
+            </StackPanel>
         </Flyout>
     </Page.Resources>
 
     <Grid>
-        <Button />
+        <Button Height="200" Width="200" Flyout="{StaticResource ColorPickerFlyout}" />
     </Grid>
 </Page>

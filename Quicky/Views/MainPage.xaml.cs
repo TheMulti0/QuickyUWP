@@ -1,5 +1,4 @@
-﻿using System;
-using Windows.UI.Core;
+﻿using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Practices.Unity;
@@ -9,19 +8,13 @@ namespace Quicky.Views
 {
     public sealed partial class MainPage : INavigationContainerPage
     {
-        public static MainPage CurrentInstance { get; set; }
-
-        public static MainPageViewModel ViewModel { get; set; }
-
-        public event NavigatedEventHandler NavigatedToPage;
-
         public MainPage()
         {
             InitializeComponent();
 
             CurrentInstance = this;
 
-            ViewModel = new MainPageViewModel();
+            ViewModel = new MainViewModel();
             DataContext = ViewModel;
 
             ViewModel.Content = new HomePage();
@@ -30,6 +23,12 @@ namespace Quicky.Views
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
             Window.Current.VisibilityChanged += NavigateToHome;
         }
+
+        public static MainPage CurrentInstance { get; set; }
+
+        public static MainViewModel ViewModel { get; set; }
+
+        public event NavigatedEventHandler NavigatedToPage;
 
         private void OnBackRequested(object sender, BackRequestedEventArgs e)
         {

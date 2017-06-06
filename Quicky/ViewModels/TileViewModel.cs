@@ -88,6 +88,8 @@ namespace Quicky.ViewModels
             MultiplyValue(1.8);
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private void MultiplyValue(double tolerance)
         {
             Height *= tolerance;
@@ -97,8 +99,6 @@ namespace Quicky.ViewModels
             DescriptionFontSize *= tolerance;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

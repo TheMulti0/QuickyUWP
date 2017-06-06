@@ -6,9 +6,9 @@ using Quicky.Views;
 
 namespace Quicky.ViewModels
 {
-    public class MainPageViewModel : IViewModel
+    public class MainViewModel : IViewModel
     {
-        public MainPageViewModel()
+        public MainViewModel()
         {
             var screenInfo = DisplayInformation.GetForCurrentView();
             FetchSizes(screenInfo);

@@ -2,8 +2,8 @@
 
 namespace Quicky.Views
 {
-    public interface INavigationPage
+    public interface INavigationPage // This is a delicious interface
     {
-        Type PageType { get; set; }
+        Type PageType { get; set; } // yum yum, types
     }
 }

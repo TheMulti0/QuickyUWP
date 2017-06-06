@@ -17,7 +17,7 @@
                 <StackPanel Margin="{Binding ConfirmationPanelMargin}"
                             Orientation="Horizontal"
                             HorizontalAlignment="Center">
-                    <Button Content="OK" Click="FlyoutOkButton_OnClick" />
+                    <Button Content="Done" Click="FlyoutDoneButton_OnClick" />
 
                     <Button Content="Cancel" Click="FlyoutCancelButton_OnClick" />
                 </StackPanel>

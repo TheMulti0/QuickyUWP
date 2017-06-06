@@ -20,7 +20,7 @@ namespace Quicky.Views
             PageType = typeof(SettingsPage);
         }
 
-        private void FlyoutOkButton_OnClick(object sender, RoutedEventArgs e)
+        private void FlyoutDoneButton_OnClick(object sender, RoutedEventArgs e)
         {
             ViewModel.AccentColor = ColorPicker.Color;
 

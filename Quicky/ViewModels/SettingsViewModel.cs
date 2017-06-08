@@ -13,6 +13,7 @@ namespace Quicky.ViewModels
         private double _colorPickerHeight;
         private double _colorPickerWidth;
         private Thickness _confirmationPanelMargin;
+        private double _headerFontSize;
 
         public SettingsViewModel()
         {
@@ -50,19 +51,30 @@ namespace Quicky.ViewModels
             }
         }
 
+        public double HeaderFontSize
+        {
+            get => _headerFontSize;
+            set
+            {
+                _headerFontSize = value;
+                OnPropertyChanged();
+            }
+        }
+
         public Color AccentColor { get; set; }
 
         public void FetchSizes(object size)
         {
-            var newHeight = (double) size / 3.6;
-            if (Math.Abs(ColorPickerHeight - newHeight) < 0.0)
+            var height = (double) size;
+            if (Math.Abs(ColorPickerHeight - (double) size / 4.0) < 0.0)
             {
                 return;
             }
 
-            ColorPickerHeight = 1080 / 4.0;
+            ColorPickerHeight = height / 4.0;
             ColorPickerWidth = ColorPickerHeight;
 
+            HeaderFontSize = ColorPickerHeight / 18;
             ConfirmationPanelMargin = new Thickness(ColorPickerHeight / 20);
         }
 

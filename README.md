@@ -9,5 +9,5 @@ The purpose of Quicky is to let the average user an option to do useful actions.
 
 ## Contributing
 ### Official Contributors
-* **[TheMulti0 / Raphaelbox]**(https://github.com/TheMulti0)
-* **[jeuxjeux20]**(https://github.com/jeuxjeux20)
+* [**TheMulti0 / Raphaelbox**](https://github.com/TheMulti0)
+* [**jeuxjeux20**](https://github.com/jeuxjeux20)

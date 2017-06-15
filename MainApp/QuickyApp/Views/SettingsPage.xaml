@@ -14,8 +14,7 @@
                     <StackPanel Orientation="Vertical">
                         <cf4:ColorPicker Height="{Binding ColorPickerHeight}"
                                          Width="{Binding ColorPickerWidth}"
-                                         Color="{Binding AccentColor, UpdateSourceTrigger=PropertyChanged}"
-                                         />
+                                         Color="{Binding AccentColor, UpdateSourceTrigger=PropertyChanged}" />
 
                         <StackPanel Margin="{Binding ConfirmationPanelMargin}"
                                     Orientation="Horizontal"

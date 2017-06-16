@@ -65,10 +65,6 @@ namespace QuickyApp.Services
             {
                 result = GetPageType(page);
             }
-            catch (InvalidCastException)
-            {
-                result = GetViewModelType(page);
-            }
             catch (NotSupportedException)
             {
                 result = GetViewModelType(page);

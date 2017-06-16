@@ -5,27 +5,47 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:cf4="using:Coding4Fun.Toolkit.Controls"
+    xmlns:views="using:QuickyApp.Views"
     mc:Ignorable="d">
+    
+    <Page.Resources>
+        <Flyout x:Key="AccentColorFlyout">
+            <StackPanel Orientation="Vertical">
+                <cf4:ColorPicker Height="{Binding ColorPickerHeight}"
+                                 Width="{Binding ColorPickerWidth}"
+                                 Color="{Binding AccentColor}" />
+
+                <StackPanel Margin="{Binding FlyoutColorPickerMargin}"
+                            Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Height="{Binding FlyoutColorPickerButtonHeight}"
+                            Width="{Binding FlyoutColorPickerButtonWidth}"
+                            Margin="{Binding FlyoutColorPickerButtonHorizontalMargin}"
+                            Content="Done" Click="CloseAccentColorFlyout" />
+
+                    <Button Height="{Binding FlyoutColorPickerButtonHeight}"
+                            Width="{Binding FlyoutColorPickerButtonWidth}"
+                            Margin="{Binding FlyoutColorPickerButtonHorizontalMargin}"
+                            Content="Cancel" Click="CloseAccentColorFlyout" />
+                </StackPanel>
+            </StackPanel>
+        </Flyout>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="AccentColor" Height="200" Width="200">
-            <FlyoutBase.AttachedFlyout>
-                <Flyout>
-                    <StackPanel Orientation="Vertical">
-                        <cf4:ColorPicker Height="{Binding ColorPickerHeight}"
-                                         Width="{Binding ColorPickerWidth}"
-                                         Color="{Binding AccentColor, UpdateSourceTrigger=PropertyChanged}" />
+        <StackPanel Orientation="Vertical" 
+                    HorizontalAlignment="Left">
+            <TextBlock Text="Colors"
+                       FontSize="{Binding HeaderFontSize}" />
+            <StackPanel Orientation="Horizontal">
 
-                        <StackPanel Margin="{Binding ConfirmationPanelMargin}"
-                                    Orientation="Horizontal"
-                                    HorizontalAlignment="Center">
-                            <Button Content="Done" Command="{Binding CloseCommand}" />
-
-                            <Button Content="Cancel" Command="{Binding CloseCommand}" />
-                        </StackPanel>
-                    </StackPanel>
-                </Flyout>
-            </FlyoutBase.AttachedFlyout>
-        </Button>
+                <TextBlock Text="AccentColor"
+                           FontSize="{Binding LabelFontSize}"
+                           Margin="{Binding RightSpaceMargin}" />
+                <Button x:Name="AccentColorButton"
+                        Flyout="{Binding Source={StaticResource AccentColorFlyout}}" 
+                        Height="200" Width="200" />
+                
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

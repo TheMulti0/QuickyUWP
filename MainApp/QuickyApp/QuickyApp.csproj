@@ -102,7 +102,6 @@
     <Compile Include="ViewModels\INavigatorViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\TileControlViewModel.cs" />
-    <Compile Include="Views\FlyoutHelper.cs" />
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>

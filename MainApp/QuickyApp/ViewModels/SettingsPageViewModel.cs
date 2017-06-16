@@ -4,20 +4,11 @@ using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
 
 namespace QuickyApp.ViewModels
 {
     internal class SettingsPageViewModel : ViewModelBase, INavigatorViewModel
     {
-        private Color _accentColor;
-        private bool _isOpen;
-        private FrameworkElement _parent;
-
-        public Type PageViewModelType { get; set; }
-
-        public Page ContainerPage { get; set; }
-
         public SettingsPageViewModel()
         {
             Initialize();
@@ -34,22 +25,38 @@ namespace QuickyApp.ViewModels
 
         private void Initialize()
         {
-            CloseCommand = new RelayCommand(() => IsOpen = false);
-
             SetSizes();
         }
+
+        private Color _accentColor;
+
+        private bool _isOpen;
+
+        private FrameworkElement _parent;
+
+        public Type PageViewModelType { get; set; }
+
+        public Page ContainerPage { get; set; }
 
         public double ColorPickerHeight { get; set; }
 
         public double ColorPickerWidth { get; set; }
 
-        public Thickness ConfirmationPanelMargin { get; set; }
-
         public double HeaderFontSize { get; set; }
 
         public double LabelFontSize { get; set; }
 
-        public RelayCommand CloseCommand { get; set; }
+        public double FlyoutColorPickerButtonHeight { get; set; }
+
+        public double FlyoutColorPickerButtonWidth { get; set; }
+
+        public Thickness FlyoutColorPickerButtonHorizontalMargin { get; set; }
+
+        public Thickness FlyoutColorPickerMargin { get; set; }
+
+        public Thickness VerticalSpaceMargin { get; set; }
+
+        public Thickness RightSpaceMargin { get; set; }
 
         public Color AccentColor
         {
@@ -78,7 +85,7 @@ namespace QuickyApp.ViewModels
             var displayInfo = DisplayInformation.GetForCurrentView();
             double height = displayInfo.ScreenHeightInRawPixels;
 
-            var colorPickerHeight = height / 2.42;
+            var colorPickerHeight = height / 4;
             if (Math.Abs(ColorPickerHeight - colorPickerHeight) < 0.0)
             {
                 return;
@@ -87,10 +94,19 @@ namespace QuickyApp.ViewModels
             ColorPickerHeight = colorPickerHeight;
             ColorPickerWidth = ColorPickerHeight;
 
-            HeaderFontSize = ColorPickerHeight / 6;
+            FlyoutColorPickerButtonWidth = ColorPickerHeight / 2.7;
+            FlyoutColorPickerButtonHeight = FlyoutColorPickerButtonWidth / 5;
+
+            FlyoutColorPickerMargin = new Thickness(0, ColorPickerHeight / 20, 0, 0);
+
+            var horizontalMargin = (ColorPickerHeight - FlyoutColorPickerButtonWidth * 2) / 4;
+            FlyoutColorPickerButtonHorizontalMargin = new Thickness(horizontalMargin, 0, horizontalMargin, 0);
+
+            HeaderFontSize = FlyoutColorPickerButtonWidth / 2.5;
             LabelFontSize = HeaderFontSize / 1.3333333333333333;
 
-            ConfirmationPanelMargin = new Thickness(ColorPickerHeight / 20);
+            var rightSpace = LabelFontSize / 5;
+            RightSpaceMargin = new Thickness(0, 0, rightSpace, 0);
         }
     }
 }

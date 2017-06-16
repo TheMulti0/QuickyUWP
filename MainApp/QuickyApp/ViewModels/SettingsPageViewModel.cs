@@ -46,6 +46,10 @@ namespace QuickyApp.ViewModels
 
         public double LabelFontSize { get; set; }
 
+        public double ChooseColorButtonHeight { get; set; }
+
+        public double ChooseColorButtonWidth { get; set; }
+
         public double FlyoutColorPickerButtonHeight { get; set; }
 
         public double FlyoutColorPickerButtonWidth { get; set; }
@@ -97,13 +101,21 @@ namespace QuickyApp.ViewModels
             FlyoutColorPickerButtonWidth = ColorPickerHeight / 2.7;
             FlyoutColorPickerButtonHeight = FlyoutColorPickerButtonWidth / 5;
 
+            SetMarginProperties();
+
+            HeaderFontSize = FlyoutColorPickerButtonWidth / 2.5;
+            LabelFontSize = HeaderFontSize / 1.3333333333333333;
+
+            ChooseColorButtonHeight = LabelFontSize / 1.5;
+            ChooseColorButtonWidth = ChooseColorButtonHeight;
+        }
+
+        private void SetMarginProperties()
+        {
             FlyoutColorPickerMargin = new Thickness(0, ColorPickerHeight / 20, 0, 0);
 
             var horizontalMargin = (ColorPickerHeight - FlyoutColorPickerButtonWidth * 2) / 4;
             FlyoutColorPickerButtonHorizontalMargin = new Thickness(horizontalMargin, 0, horizontalMargin, 0);
-
-            HeaderFontSize = FlyoutColorPickerButtonWidth / 2.5;
-            LabelFontSize = HeaderFontSize / 1.3333333333333333;
 
             var rightSpace = LabelFontSize / 5;
             RightSpaceMargin = new Thickness(0, 0, rightSpace, 0);

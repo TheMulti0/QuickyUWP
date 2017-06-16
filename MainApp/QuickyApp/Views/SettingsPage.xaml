@@ -43,8 +43,10 @@
                            Margin="{Binding RightSpaceMargin}" />
                 <Button x:Name="AccentColorButton"
                         Flyout="{Binding Source={StaticResource AccentColorFlyout}}" 
-                        Height="200" Width="200" />
-                
+                        Height="{Binding ChooseColorButtonHeight}" 
+                        Width="{Binding ChooseColorButtonWidth}">
+                </Button>
+
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -6,14 +6,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:cf4="using:Coding4Fun.Toolkit.Controls"
     xmlns:views="using:QuickyApp.Views"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Style="{StaticResource PageStyle}">
     
     <Page.Resources>
         <Flyout x:Key="AccentColorFlyout">
             <StackPanel Orientation="Vertical">
                 <cf4:ColorPicker Height="{Binding ColorPickerHeight}"
                                  Width="{Binding ColorPickerWidth}"
-                                 Color="{Binding AccentColor}" />
+                                 Color="{Binding AccentColor, Mode=TwoWay}" />
 
                 <StackPanel Margin="{Binding FlyoutColorPickerMargin}"
                             Orientation="Horizontal" HorizontalAlignment="Center">

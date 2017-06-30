@@ -6,14 +6,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:QuickyApp.ViewModels"
     mc:Ignorable="d"
-    Height="{Binding TileHeight}"
-    Width="{Binding TileWidth}">
-    
-    <UserControl.DataContext>
-        <viewModels:TileControlViewModel />
-    </UserControl.DataContext>
+    DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <UserControl.Resources>
+        <viewModels:TileControlViewModel x:Key="Vm" />
+        
         <Style TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
@@ -21,15 +18,75 @@
             <Setter Property="BorderThickness" Value="{ThemeResource ButtonBorderThemeThickness}" />
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
-            <Setter Property="FontWeight" Value="Normal" />
-            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
             <Setter Property="UseSystemFocusVisuals" Value="True" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
                             <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="VisualFamily">
+                                    <!--<VisualState x:Name="Desktop">
+                                        <VisualState.Setters>
+                                            <Setter Target="Button.ContentTemplate">
+                                                <Setter.Value>
+                                                    <DataTemplate>
+                                                        <StackPanel Width="225"
+                                                                    Height="225"
+                                                                    Orientation="Vertical">
+                                                                <TextBlock Text="{Binding Icon}"
+                                                                           FontSize="75"
+                                                                           Foreground="{ThemeResource SystemAccentColor}"
+                                                                           FontFamily="Segoe MDL2 Assets"
+                                                                           HorizontalAlignment="Center" />
+                                                                <StackPanel Orientation="Vertical"
+                                                                            HorizontalAlignment="Center"
+                                                                            VerticalAlignment="Center"
+                                                                            Margin="0, 10">
+                                                                    <TextBlock Text="{Binding Title}"
+                                                                               FontSize="28"
+                                                                               HorizontalAlignment="Center" />
+                                                                    <TextBlock Text="{Binding Description}"
+                                                                               FontSize="18"
+                                                                               Foreground="DarkGray"
+                                                                               HorizontalAlignment="Center" />
+                                                                </StackPanel>
+                                                            </StackPanel>
+                                                    </DataTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </VisualState.Setters>
+                                    </VisualState>-->
+                                    <VisualState x:Name="Compact">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="720"></AdaptiveTrigger>
+                                        </VisualState.StateTriggers>
+                                        <VisualState.Setters>
+                                            <Setter Target="Button.ContentTemplate">
+                                                <Setter.Value>
+                                                    <DataTemplate>
+                                                        <StackPanel Width="{Binding AppWidth, Source={StaticResource Vm}}"
+                                                                    Height="50"
+                                                                    Orientation="Horizontal">
+                                                            <TextBlock Text="{Binding Icon}"
+                                                                       FontSize="35"
+                                                                       Foreground="{ThemeResource SystemAccentColor}"
+                                                                       FontFamily="Segoe MDL2 Assets"
+                                                                       HorizontalAlignment="Left" />
+                                                            <StackPanel Orientation="Vertical"
+                                                                        Margin="15, 0, 0, 0">
+                                                                <TextBlock Text="{Binding Title}"
+                                                                           FontSize="30" />
+                                                                <TextBlock Text="{Binding Description}"
+                                                                           FontSize="20"
+                                                                           Foreground="DarkGray" />
+                                                            </StackPanel>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal">
                                         <Storyboard>
@@ -40,7 +97,7 @@
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
                                                                            Storyboard.TargetProperty="BorderBrush">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseMediumLowBrush}" />
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseLowBrush}" />
                                             </ObjectAnimationUsingKeyFrames>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
                                                                            Storyboard.TargetProperty="Foreground">
@@ -89,7 +146,7 @@
                                               Padding="{TemplateBinding Padding}"
                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              AutomationProperties.AccessibilityView="Raw"/>
+                                              AutomationProperties.AccessibilityView="Raw" />
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -99,27 +156,31 @@
 
     <Grid>
         <Button Click="Tile_ViewModelNavigation">
-            <StackPanel Orientation="Vertical">
-                <Grid>
-                    <TextBlock Text="{x:Bind Icon}"
-                               FontSize="{Binding IconSize}"
-                               Foreground="{ThemeResource SystemAccentColor}"
-                               FontFamily="Segoe MDL2 Assets"
-                               HorizontalAlignment="Center" />
-                </Grid>
-
-                <StackPanel Orientation="Vertical"
-                            HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="{x:Bind Title}"
-                               FontSize="{Binding TitleFontSize}"
-                               HorizontalAlignment="Center" />
-
-                    <TextBlock Text="{x:Bind Description}"
-                               FontSize="{Binding DescriptionFontSize}"
-                               Foreground="DarkGray"
-                               HorizontalAlignment="Center" />
-                </StackPanel>
-            </StackPanel>
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <StackPanel Width="225"
+                                Height="225"
+                                Orientation="Vertical">
+                        <TextBlock Text="{Binding Icon}"
+                                   FontSize="75"
+                                   Foreground="{ThemeResource SystemAccentColor}"
+                                   FontFamily="Segoe MDL2 Assets"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <StackPanel Orientation="Vertical"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Margin="0, 10">
+                            <TextBlock Text="{Binding Title}"
+                                       FontSize="28"
+                                       HorizontalAlignment="Center" />
+                            <TextBlock Text="{Binding Description}"
+                                       FontSize="18"
+                                       Foreground="DarkGray"
+                                       HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </Button.ContentTemplate>
         </Button>
     </Grid>
 </UserControl>

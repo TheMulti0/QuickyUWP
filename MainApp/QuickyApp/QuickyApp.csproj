@@ -100,6 +100,7 @@
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />
     <Compile Include="ViewModels\INavigatorViewModel.cs" />
+    <Compile Include="ViewModels\PropertyChangedContainer.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\TileControlViewModel.cs" />
     <Compile Include="Views\HomePage.xaml.cs">
@@ -121,7 +122,7 @@
   <ItemGroup>
     <Content Include="Assets\Logo-AppList.png" />
     <Content Include="Assets\Logo-NoMargins.png" />
-    <Content Include="Assets\Logo-NoMargins.targetsize-256.png" />
+    <Content Include="Assets\Logo-NoMargins.scale-400.png" />
     <Content Include="Assets\Logo-TileLargeMedium.png" />
     <Content Include="Assets\Logo-TileSmall.png" />
     <Content Include="Assets\Logo-TileSmall.scale-400.png" />
@@ -130,7 +131,6 @@
     <Content Include="Assets\SplashScreen.scale-400.png" />
     <Content Include="Assets\Square150x150Logo.scale-400.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
-    <Content Include="Assets\StoreLogo.scale-400.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
@@ -157,11 +157,17 @@
       <Version>2.1.8</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>5.2.3</Version>
+      <Version>5.3.3</Version>
     </PackageReference>
     <PackageReference Include="MvvmLight">
       <Version>5.3.0</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Apps\TranslateApp\TranslateApp.csproj">
+      <Project>{AA2621D1-AEDE-4F21-BB66-A58ABF9B92CC}</Project>
+      <Name>TranslateApp</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

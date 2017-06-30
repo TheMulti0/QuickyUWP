@@ -18,7 +18,7 @@
                               NavigatorViewModel="{Binding Source={StaticResource SettingsVm}}"
                               Icon="&#xE713;"
                               Title="Settings"
-                              Description="Control the app." />
+                              Description="Customize the app" />
         </ScrollViewer> 
     </Grid>
 </Page>

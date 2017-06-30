@@ -45,6 +45,7 @@
                         Flyout="{Binding Source={StaticResource AccentColorFlyout}}" 
                         Height="{Binding ChooseColorButtonHeight}" 
                         Width="{Binding ChooseColorButtonWidth}">
+                    <SymbolIcon Symbol="Add"></SymbolIcon>
                 </Button>
 
             </StackPanel>

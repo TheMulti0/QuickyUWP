@@ -1,4 +1,5 @@
-﻿using QuickyApp.ViewModels;
+﻿using System.Diagnostics;
+using QuickyApp.ViewModels;
 
 namespace QuickyApp.Views
 {

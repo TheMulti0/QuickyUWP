@@ -1,43 +1,28 @@
-﻿using System;
-using Windows.Graphics.Display;
+﻿using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace QuickyApp.ViewModels
 {
-    internal class TileControlViewModel
+    internal class TileControlViewModel : PropertyChangedContainer
     {
+        private double _appWidth;
+
+        public double AppWidth
+        {
+            get => _appWidth;
+            set
+            {
+                _appWidth = value;
+                OnPropertyChanged();
+            }
+        }
+
         public TileControlViewModel()
         {
-            SetSizes();
+            Window.Current.SizeChanged += 
+                (sender, args) => 
+                AppWidth = ((Frame)Window.Current.Content).ActualWidth;
         }
 
-        private void SetSizes()
-        {
-            var displayInfo = DisplayInformation.GetForCurrentView();
-            double height = displayInfo.ScreenHeightInRawPixels;
-
-            var newHeight = height / 2.42;
-            if (Math.Abs(TileHeight - height) < 0.0)
-            {
-                return;
-            }
-
-            TileHeight = newHeight;
-            TileWidth = TileHeight;
-
-            IconSize = TileHeight / 6;
-
-            TitleFontSize = IconSize / 2.3;
-            DescriptionFontSize = TitleFontSize / 1.25;
-        }
-
-        public double TileHeight { get; set; }
-
-        public double TileWidth { get; set; }
-
-        public double IconSize { get; set; }
-
-        public double TitleFontSize { get; set; }
-
-        public double DescriptionFontSize { get; set; }
     }
 }

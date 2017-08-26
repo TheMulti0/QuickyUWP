@@ -1,0 +1,27 @@
+﻿<UserControl
+    x:Class="QuickyApp.TranslateApp.UI.Views.TranslateControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:views="using:QuickyApp.TranslateApp.UI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:QuickyApp.TranslateApp.UI.ViewModels"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    
+    <UserControl.DataContext>
+        <viewModels:TranslatePageViewModel />
+    </UserControl.DataContext>
+
+    <SplitView IsPaneOpen="True" DisplayMode="Inline" OpenPaneLength="250">
+        <SplitView.Pane>
+            <TextBox x:ConnectionId='1' Text="{Binding SourceText, Mode=TwoWay}"
+                                                       />
+        </SplitView.Pane>
+
+        <TextBlock Text="hello" FontSize="64" TextWrapping="Wrap" />
+    </SplitView>
+    
+</UserControl>
+

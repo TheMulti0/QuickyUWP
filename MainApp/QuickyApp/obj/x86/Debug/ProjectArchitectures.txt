@@ -1,0 +1,2 @@
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\Apps\TranslateApp\TranslateApp.UI\TranslateApp.UI.csproj;neutral
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\MainApp\QuickyApp\QuickyApp.csproj;x86

@@ -70,7 +70,7 @@ namespace QuickyApp.Views
         private void Tile_ViewModelNavigation(object sender, RoutedEventArgs e)
         {
             var navService = new NavigationService();
-            navService.Navigate(NavigatorViewModel, NavigationContainerViewModel);
+            navService.Navigate(NavigatorViewModel.GetType(), NavigationContainerViewModel);
         }
     }
 }

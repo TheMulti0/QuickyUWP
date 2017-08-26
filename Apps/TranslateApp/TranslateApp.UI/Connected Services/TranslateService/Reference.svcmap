@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e053a324-2c62-4d32-b74f-1bd079502428" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.pipe://translateservice/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="aad5d77d-d884-4bae-bf73-03923d27cac6" SourceId="1" SourceUrl="net.pipe://translateservice/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="b07b4626-662a-4380-a52e-545ae2608d25" SourceId="1" SourceUrl="net.pipe://translateservice/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="a6847d76-5d7b-4a13-9b7c-a1bc30c2e561" SourceId="1" SourceUrl="net.pipe://translateservice/mex" />
+    <MetadataFile FileName="QuickyApp.TranslateApp.Engine.Enums.xsd" MetadataType="Schema" ID="4d8ba1f3-3d75-45c0-ae9e-8052269cc0c0" SourceId="1" SourceUrl="net.pipe://translateservice/mex" />
+    <MetadataFile FileName="QuickyApp.TranslateApp.Engine.Wcf.xsd" MetadataType="Schema" ID="defe822d-cab2-49a2-8166-54de67cf89c2" SourceId="1" SourceUrl="net.pipe://translateservice/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

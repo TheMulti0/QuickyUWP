@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/QuickyApp.TranslateApp.Engine.Enums" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/QuickyApp.TranslateApp.Engine.Wcf" />
+  <xs:element name="Initialize">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/QuickyApp.TranslateApp.Engine.Enums" minOccurs="0" name="driverType" type="q1:DriverTypes" />
+        <xs:element minOccurs="0" name="driverPath" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InitializeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Translate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/QuickyApp.TranslateApp.Engine.Wcf" minOccurs="0" name="word" nillable="true" type="q2:TranslateWord" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/QuickyApp.TranslateApp.Engine.Enums" minOccurs="0" name="translatedLanguage" type="q3:TranslateLanguages" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TranslateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/QuickyApp.TranslateApp.Engine.Wcf" minOccurs="0" name="TranslateResult" nillable="true" type="q4:TranslateWord" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Detect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/QuickyApp.TranslateApp.Engine.Wcf" minOccurs="0" name="word" nillable="true" type="q5:TranslateWord" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DetectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/QuickyApp.TranslateApp.Engine.Wcf" minOccurs="0" name="DetectResult" nillable="true" type="q6:TranslateWord" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

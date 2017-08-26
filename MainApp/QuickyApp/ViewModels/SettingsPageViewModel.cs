@@ -16,9 +16,7 @@ namespace QuickyApp.ViewModels
 
         public SettingsPageViewModel(Page page)
         {
-            PageViewModelType = typeof(SettingsPageViewModel);
-
-            ContainerPage = page;
+            AssociatedPage = page;
 
             Initialize();
         }
@@ -34,9 +32,7 @@ namespace QuickyApp.ViewModels
 
         private FrameworkElement _parent;
 
-        public Type PageViewModelType { get; set; }
-
-        public Page ContainerPage { get; set; }
+        public Page AssociatedPage { get; set; }
 
         public double ColorPickerHeight { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using QuickyApp.Annotations;
+using QuickyApp.Properties;
 
 namespace QuickyApp.ViewModels
 {

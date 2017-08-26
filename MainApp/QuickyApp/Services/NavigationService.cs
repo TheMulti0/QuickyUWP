@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using Windows.UI.Core;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using QuickyApp.ViewModels;
@@ -47,71 +48,14 @@ namespace QuickyApp.Services
             }
         }
 
-        public void Navigate(INavigatorViewModel navVm, INavigatorViewModel containerVm)
+        public void Navigate(Type viewModelType, INavigatorViewModel containerViewModel)
         {
-            _containerPage = containerVm.ContainerPage;
+            Type pageType = new TypesRegistry().GetViewType(viewModelType);
+            _containerPage = containerViewModel.AssociatedPage;
 
-            var chosenType = GetType(navVm);
-
-            containerVm.ContainerPage.Frame.Navigate(chosenType);
+            _containerPage.Frame.Navigate(pageType);
 
             NavigatedToPage?.Invoke(null, null);
-        }
-
-        public Type GetType(object page)
-        {
-            Type result;
-            try
-            {
-                result = GetPageType(page);
-            }
-            catch (NotSupportedException)
-            {
-                result = GetViewModelType(page);
-            }
-            catch (Exception)
-            {
-                throw new NotImplementedException();
-            }
-
-            return result;
-        }
-
-        private static Type GetViewModelType(object page)
-        {
-            if (page.GetType() != typeof(Page))
-            {
-                throw new NotSupportedException();
-            }
-            if (page is HomePage)
-            {
-                return GetPageType(typeof(HomePageViewModel));
-            }
-            if (page is SettingsPage)
-            {
-                return GetPageType(typeof(SettingsPageViewModel));
-            }
-
-            throw new NotImplementedException();
-        }
-
-        private static Type GetPageType(object viewModel)
-        {
-            Type viewModelType = viewModel.GetType();
-            if (!viewModelType.GetInterfaces().Contains(typeof(INavigatorViewModel)))
-            {
-                throw new NotSupportedException();
-            }
-            if (viewModelType == typeof(HomePageViewModel))
-            {
-                return typeof(HomePage);
-            }
-            if (viewModelType == typeof(SettingsPageViewModel))
-            {
-                return typeof(SettingsPage);
-            }
-
-            throw new NotImplementedException();
         }
     }
 }

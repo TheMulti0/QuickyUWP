@@ -8,18 +8,28 @@
     xmlns:viewModels="using:QuickyApp.ViewModels"
     mc:Ignorable="d"
     Style="{StaticResource PageStyle}">
-    
+
     <Page.Resources>
-        <viewModels:SettingsPageViewModel x:Key="SettingsVm" />
+
+        <viewModels:TranslatePageViewModel x:Key="TranslateVm" />
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-           <views:TileControl NavigationContainerViewModel="{x:Bind _dataContext}"
-                              NavigatorViewModel="{Binding Source={StaticResource SettingsVm}}"
-                              Icon="&#xE713;"
-                              Title="Settings"
-                              Description="Customize the app" />
+
+            <StackPanel>
+                <!--<views:TileControl NavigationContainerViewModel="{x:Bind _dataContext}"
+                                   NavigatorViewModel="{Binding Source={StaticResource SettingsVm}}"
+                                   Icon="&#xE713;"
+                                   Title="Settings"
+                                   Description="Customize the app" />-->
+                <views:TileControl NavigationContainerViewModel="{x:Bind _dataContext}"
+                                   NavigatorViewModel="{Binding Source={StaticResource TranslateVm}}"
+                                   Icon="&#xE8C1;"
+                                   Title="Translate"
+                                   Description="Translate any sequence" />
+            </StackPanel>
+
         </ScrollViewer> 
     </Grid>
 </Page>

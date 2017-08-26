@@ -1,0 +1,8 @@
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\Apps\TranslateApp\TranslateApp.Engine\bin\Debug\TranslateApp.Engine.dll.config
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\Apps\TranslateApp\TranslateApp.Engine\bin\Debug\TranslateApp.Engine.dll
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\Apps\TranslateApp\TranslateApp.Engine\bin\Debug\TranslateApp.Engine.pdb
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\Apps\TranslateApp\TranslateApp.Engine\obj\Debug\TranslateApp.Engine.dll
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\Apps\TranslateApp\TranslateApp.Engine\obj\Debug\TranslateApp.Engine.pdb
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\Apps\TranslateApp\TranslateApp.Engine\obj\Debug\TranslateApp.Engine.csprojResolveAssemblyReference.cache
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\Apps\TranslateApp\TranslateApp.Engine\bin\Debug\WebDriver.dll
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\Apps\TranslateApp\TranslateApp.Engine\bin\Debug\WebDriver.xml

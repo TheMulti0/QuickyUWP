@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="QuickyApp.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cf4="using:Coding4Fun.Toolkit.Controls"
+    xmlns:views="using:QuickyApp.Views"
+    mc:Ignorable="d"
+    Style="{StaticResource PageStyle}">
+    
+    <Page.Resources>
+        <Flyout x:Key="AccentColorFlyout">
+            <StackPanel Orientation="Vertical">
+                <cf4:ColorPicker Height="{Binding ColorPickerHeight}"
+                                 Width="{Binding ColorPickerWidth}"
+                                 Color="{Binding AccentColor, Mode=TwoWay}" />
+
+                <StackPanel Margin="{Binding FlyoutColorPickerMargin}"
+                            Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:ConnectionId='1' Height="{Binding FlyoutColorPickerButtonHeight}"
+                            Width="{Binding FlyoutColorPickerButtonWidth}"
+                            Margin="{Binding FlyoutColorPickerButtonHorizontalMargin}"
+                            Content="Done"                                />
+
+                    <Button x:ConnectionId='2' Height="{Binding FlyoutColorPickerButtonHeight}"
+                            Width="{Binding FlyoutColorPickerButtonWidth}"
+                            Margin="{Binding FlyoutColorPickerButtonHorizontalMargin}"
+                            Content="Cancel"                                />
+                </StackPanel>
+            </StackPanel>
+        </Flyout>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical" 
+                    HorizontalAlignment="Left">
+            <TextBlock Text="Colors"
+                       FontSize="{Binding HeaderFontSize}" />
+            <StackPanel Orientation="Horizontal">
+
+                <TextBlock Text="AccentColor"
+                           FontSize="{Binding LabelFontSize}"
+                           Margin="{Binding RightSpaceMargin}" />
+                <Button x:ConnectionId='3' x:Name="AccentColorButton"
+                        Flyout="{Binding Source={StaticResource AccentColorFlyout}}" 
+                        Height="{Binding ChooseColorButtonHeight}" 
+                        Width="{Binding ChooseColorButtonWidth}">
+                    <SymbolIcon Symbol="Add"></SymbolIcon>
+                </Button>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
+

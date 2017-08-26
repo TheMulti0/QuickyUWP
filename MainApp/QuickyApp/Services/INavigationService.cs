@@ -8,8 +8,6 @@ namespace QuickyApp.Services
     {
         event NavigatedEventHandler NavigatedToPage;
 
-        void Navigate(INavigatorViewModel navVm, INavigatorViewModel containerVm);
-
-        Type GetType(object page);
+        void Navigate(Type viewModelType, INavigatorViewModel containerViewModel);
     }
 }

@@ -1,0 +1,7 @@
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\Apps\TranslateApp\TranslateApp.UI\obj\x64\Debug\TranslateApp.UI.csprojResolveAssemblyReference.cache
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\Apps\TranslateApp\TranslateApp.UI\obj\x64\Debug\Views\TranslatePage.g.i.cs
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\Apps\TranslateApp\TranslateApp.UI\obj\x64\Debug\Views\TranslatePage.g.cs
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\Apps\TranslateApp\TranslateApp.UI\obj\x64\Debug\XamlTypeInfo.g.cs
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\Apps\TranslateApp\TranslateApp.UI\obj\x64\Debug\Views\TranslatePage.xaml
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\Apps\TranslateApp\TranslateApp.UI\obj\x64\Debug\Views\TranslatePage.xbf
+C:\Users\Davids_old\Documents\Programming\C#\UWP\Quicky\Apps\TranslateApp\TranslateApp.UI\obj\x64\Debug\XamlSaveStateFile.xml
